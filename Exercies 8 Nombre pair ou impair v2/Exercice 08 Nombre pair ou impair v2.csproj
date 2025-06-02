@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Exrecice 7 Nombre pair ou impair\Exercice 7 Nombre pair ou impair.csproj" />
+    <ProjectReference Include="..\Exrecice 7 Nombre pair ou impair\Exercice 07 Nombre pair ou impair.csproj" />
   </ItemGroup>
 
 </Project>

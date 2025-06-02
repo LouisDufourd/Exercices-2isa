@@ -3,27 +3,35 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 1 Premier programme", "Exercices\Exercice 1 Premier programme.csproj", "{EC924D49-B9FE-4550-868C-3169DC5ABB40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 01 Premier programme", "Exercices\Exercice 01 Premier programme.csproj", "{EC924D49-B9FE-4550-868C-3169DC5ABB40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 2 Premier programme v2", "Exercice 2\Exercice 2 Premier programme v2.csproj", "{4A105EBB-F405-43B1-B45D-1C4017950BF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 02 Premier programme v2", "Exercice 2\Exercice 02 Premier programme v2.csproj", "{4A105EBB-F405-43B1-B45D-1C4017950BF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 3 Cube d un nombre", "Exercice 3\Exercice 3 Cube d un nombre.csproj", "{E819B5BD-C883-4671-89FA-6AE1F0E87356}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 03 Cube d un nombre", "Exercice 3\Exercice 03 Cube d un nombre.csproj", "{E819B5BD-C883-4671-89FA-6AE1F0E87356}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 4 Cube d un nombre v2", "Exercice 4\Exercice 4 Cube d un nombre v2.csproj", "{EFEAFE6F-89B7-4FDD-B369-CD477A4B1F8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 04 Cube d un nombre v2", "Exercice 4\Exercice 04 Cube d un nombre v2.csproj", "{EFEAFE6F-89B7-4FDD-B369-CD477A4B1F8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 5 Périmètre d'un cercle", "Exercice 5 Périmètre d'un cercle\Exercice 5 Périmètre d'un cercle.csproj", "{5C129FC6-18EB-4DBE-B005-72A32A4FA26D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 05 Périmètre d'un cercle", "Exercice 5 Périmètre d'un cercle\Exercice 05 Périmètre d'un cercle.csproj", "{5C129FC6-18EB-4DBE-B005-72A32A4FA26D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 6 Permutation", "Exercice 6 Permutation\Exercice 6 Permutation.csproj", "{FDA4ACE2-A425-4EB5-B904-6D5CD5C8BD28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 06 Permutation", "Exercice 6 Permutation\Exercice 06 Permutation.csproj", "{FDA4ACE2-A425-4EB5-B904-6D5CD5C8BD28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 7 Nombre pair ou impair", "Exrecice 7 Nombre pair ou impair\Exercice 7 Nombre pair ou impair.csproj", "{3704C68D-EE73-4C6E-9764-71E494A9B34D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 07 Nombre pair ou impair", "Exrecice 7 Nombre pair ou impair\Exercice 07 Nombre pair ou impair.csproj", "{3704C68D-EE73-4C6E-9764-71E494A9B34D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 8 Nombre pair ou impair v2", "Exercies 8 Nombre pair ou impair v2\Exercice 8 Nombre pair ou impair v2.csproj", "{324AC18D-86B9-485D-8B2E-2E212429F646}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 08 Nombre pair ou impair v2", "Exercies 8 Nombre pair ou impair v2\Exercice 08 Nombre pair ou impair v2.csproj", "{324AC18D-86B9-485D-8B2E-2E212429F646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 9 Le plus grand des deux", "Exercice 9   Le plus grand des deux\Exercice 9 Le plus grand des deux.csproj", "{F408D8AF-646E-4DDD-985C-EFC22F4DF831}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 09 Le plus grand des deux", "Exercice 9   Le plus grand des deux\Exercice 09 Le plus grand des deux.csproj", "{F408D8AF-646E-4DDD-985C-EFC22F4DF831}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 10 Signe d un nombre", "Exercice 10 Signe d un nombre\Exercice 10 Signe d un nombre.csproj", "{2F98E3B5-B775-47F6-ACC3-122B5913FA59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice bonus Operation, Verification et Explication", "Exercice bonus\Exercice bonus Operation, Verification et Explication.csproj", "{29481058-8607-4DCB-A6A6-CD023B6732C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 11 Note", "Exercice 11 Note\Exercice 11 Note.csproj", "{2589294D-A3C9-46A1-B073-4C461AECF483}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 12 Signe d un produit", "Exercice 12 Signe d un produit\Exercice 12 Signe d un produit.csproj", "{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 13 Signe d un nombre v2", "Exercice 13\Exercice 13 Signe d un nombre v2.csproj", "{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 14 Consigne", "Exercice 14 Consigne\Exercice 14 Consigne.csproj", "{045F0082-8555-4E93-80FE-E78EE2FE1A67}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +83,22 @@ Global
 		{29481058-8607-4DCB-A6A6-CD023B6732C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29481058-8607-4DCB-A6A6-CD023B6732C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29481058-8607-4DCB-A6A6-CD023B6732C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2589294D-A3C9-46A1-B073-4C461AECF483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2589294D-A3C9-46A1-B073-4C461AECF483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2589294D-A3C9-46A1-B073-4C461AECF483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2589294D-A3C9-46A1-B073-4C461AECF483}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}.Release|Any CPU.Build.0 = Release|Any CPU
+		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
