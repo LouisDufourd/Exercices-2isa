@@ -1,6 +1,4 @@
 ﻿//on définie une variable premierNombre et on l'initialise avec 0
-using System.ComponentModel.DataAnnotations;
-
 int premierNombre = 0;
 
 //on définie une variable deuxiemeNombre et on l'initialise avec 0
@@ -53,7 +51,7 @@ while (!(firstNumberSuccess && secondNumberSuccess))
         }
 
         //on essaye de convertir ce que l'utilisateur à taper en un nombre
-        //firstNumberSuccess = true si la convertions est réussi et false si ça à échoué
+        //secondNumberSuccess = true si la convertions est réussi et false si ça à échoué
         secondNumberSuccess = int.TryParse(secondNumber, out deuxiemeNombre);
     }
 }

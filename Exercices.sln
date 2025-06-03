@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 14 Consigne", "Exe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 15 Catégorie", "Exercice 15 Catégorie\Exercice 15 Catégorie.csproj", "{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 16 Impôt sur Zorglub", "Exercice 16 Impôt sur Zorglub\Exercice 16 Impôt sur Zorglub.csproj", "{48000CCC-852D-4ACD-BB71-F27BF2A23872}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48000CCC-852D-4ACD-BB71-F27BF2A23872}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48000CCC-852D-4ACD-BB71-F27BF2A23872}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48000CCC-852D-4ACD-BB71-F27BF2A23872}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48000CCC-852D-4ACD-BB71-F27BF2A23872}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

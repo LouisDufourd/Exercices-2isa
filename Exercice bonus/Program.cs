@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using System.Reflection.Metadata;
+using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace ExerciceBonus
@@ -30,16 +31,18 @@ namespace ExerciceBonus
                     Console.WriteLine("Merci de taper une opération");
 
                     // on sort de la boucle
-                    breakFlag = false;
+                    breakFlag = true;
                     continue;
                 }
+
+                Console.WriteLine(asked);
 
                 //on mets asked en minuscule pour éviter les problèmes de casse
                 switch (asked.ToLower())
                 {
                     case "exit" or "quit" or "e" or "q":
                         //si la variable asked contient exit, quit, e, q on sort de la boucle
-                        breakFlag = false;
+                        breakFlag = true;
                         continue;
                 }
 
