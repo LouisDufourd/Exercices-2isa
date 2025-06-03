@@ -1,5 +1,4 @@
-﻿using System.Reflection.Metadata;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.RegularExpressions;
 
 namespace ExerciceBonus
@@ -182,6 +181,17 @@ namespace ExerciceBonus
                 //on ajoute à la liste l'opérateur et le chiffre actuelle
                 currentNumber = AddToList(operations, currentNumber, operation[i]);
             }
+        }
+
+        public static string AnalyzeOperation(List<string> operations)
+        {
+            string analyze = "";
+            for (int i = 0; i < operations.Count; i++)
+            {
+                
+            }
+
+            return analyze;
         }
     }
 }
