@@ -12,8 +12,10 @@ namespace ExerciceBonus
             //on déclare et initialise une variable opération qui contiendra ce que l'utilisateur taperas sous forme de tableau
             LinkedList<String> operations = new LinkedList<string>();
 
+            bool breakFlag = false;
+
             //on boucle à l'infinie
-            while (true)
+            while (!breakFlag)
             {
                 //on demande à l'utilisateur d'entrée une opération
                 Console.Write("Entrez une operation (type exit or quit to exit): ");
@@ -27,16 +29,18 @@ namespace ExerciceBonus
                     //on affiche à l'utilisateur qu'il faut taper une opération
                     Console.WriteLine("Merci de taper une opération");
 
-                    // on ferme le programme
-                    return;
+                    // on sort de la boucle
+                    breakFlag = false;
+                    continue;
                 }
 
                 //on mets asked en minuscule pour éviter les problèmes de casse
                 switch (asked.ToLower())
                 {
                     case "exit" or "quit" or "e" or "q":
-                        //si la variable asked contient exit, quit, e, q on ferme le programme
-                        return;
+                        //si la variable asked contient exit, quit, e, q on sort de la boucle
+                        breakFlag = false;
+                        continue;
                 }
 
                 //on affecte à asked sa valeur sans les charactère invisible
