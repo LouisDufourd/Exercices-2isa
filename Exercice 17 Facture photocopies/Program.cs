@@ -13,7 +13,7 @@ while (!success)
     //on demande à l'utilisateur d'entrée un nombre entier
     Console.Write("Veuillez rentrez le nombres de photocopies voulues : ");
     //on déclare une variable et on y assigne la valeur entrée par l'utilisateur
-    string asked = Console.ReadLine();
+    string? asked = Console.ReadLine();
 
     //on s'assure que l'utilisateur n'as pas entrée une valeur null dans asked
     if (asked == null)

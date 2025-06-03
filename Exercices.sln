@@ -3,41 +3,47 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35828.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 01 Premier programme", "Exercices\Exercice 01 Premier programme.csproj", "{EC924D49-B9FE-4550-868C-3169DC5ABB40}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 001 Premier programme", "Exercices\Exercice 001 Premier programme.csproj", "{EC924D49-B9FE-4550-868C-3169DC5ABB40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 02 Premier programme v2", "Exercice 2\Exercice 02 Premier programme v2.csproj", "{4A105EBB-F405-43B1-B45D-1C4017950BF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 002 Premier programme v2", "Exercice 2\Exercice 002 Premier programme v2.csproj", "{4A105EBB-F405-43B1-B45D-1C4017950BF8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 03 Cube d un nombre", "Exercice 3\Exercice 03 Cube d un nombre.csproj", "{E819B5BD-C883-4671-89FA-6AE1F0E87356}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 003 Cube d un nombre", "Exercice 3\Exercice 003 Cube d un nombre.csproj", "{E819B5BD-C883-4671-89FA-6AE1F0E87356}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 04 Cube d un nombre v2", "Exercice 4\Exercice 04 Cube d un nombre v2.csproj", "{EFEAFE6F-89B7-4FDD-B369-CD477A4B1F8E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 004 Cube d un nombre v2", "Exercice 4\Exercice 004 Cube d un nombre v2.csproj", "{EFEAFE6F-89B7-4FDD-B369-CD477A4B1F8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 05 Périmètre d'un cercle", "Exercice 5 Périmètre d'un cercle\Exercice 05 Périmètre d'un cercle.csproj", "{5C129FC6-18EB-4DBE-B005-72A32A4FA26D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 005 Périmètre d'un cercle", "Exercice 5 Périmètre d'un cercle\Exercice 005 Périmètre d'un cercle.csproj", "{5C129FC6-18EB-4DBE-B005-72A32A4FA26D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 06 Permutation", "Exercice 6 Permutation\Exercice 06 Permutation.csproj", "{FDA4ACE2-A425-4EB5-B904-6D5CD5C8BD28}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 006 Permutation", "Exercice 6 Permutation\Exercice 006 Permutation.csproj", "{FDA4ACE2-A425-4EB5-B904-6D5CD5C8BD28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 07 Nombre pair ou impair", "Exrecice 7 Nombre pair ou impair\Exercice 07 Nombre pair ou impair.csproj", "{3704C68D-EE73-4C6E-9764-71E494A9B34D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 007 Nombre pair ou impair", "Exrecice 7 Nombre pair ou impair\Exercice 007 Nombre pair ou impair.csproj", "{3704C68D-EE73-4C6E-9764-71E494A9B34D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 08 Nombre pair ou impair v2", "Exercies 8 Nombre pair ou impair v2\Exercice 08 Nombre pair ou impair v2.csproj", "{324AC18D-86B9-485D-8B2E-2E212429F646}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 008 Nombre pair ou impair v2", "Exercies 8 Nombre pair ou impair v2\Exercice 008 Nombre pair ou impair v2.csproj", "{324AC18D-86B9-485D-8B2E-2E212429F646}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 09 Le plus grand des deux", "Exercice 9   Le plus grand des deux\Exercice 09 Le plus grand des deux.csproj", "{F408D8AF-646E-4DDD-985C-EFC22F4DF831}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 009 Le plus grand des deux", "Exercice 9   Le plus grand des deux\Exercice 009 Le plus grand des deux.csproj", "{F408D8AF-646E-4DDD-985C-EFC22F4DF831}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 10 Signe d un nombre", "Exercice 10 Signe d un nombre\Exercice 10 Signe d un nombre.csproj", "{2F98E3B5-B775-47F6-ACC3-122B5913FA59}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 010 Signe d un nombre", "Exercice 10 Signe d un nombre\Exercice 010 Signe d un nombre.csproj", "{2F98E3B5-B775-47F6-ACC3-122B5913FA59}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice bonus Operation, Verification et Explication", "Exercice bonus\Exercice bonus Operation, Verification et Explication.csproj", "{29481058-8607-4DCB-A6A6-CD023B6732C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 11 Note", "Exercice 11 Note\Exercice 11 Note.csproj", "{2589294D-A3C9-46A1-B073-4C461AECF483}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 011 Note", "Exercice 11 Note\Exercice 011 Note.csproj", "{2589294D-A3C9-46A1-B073-4C461AECF483}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 12 Signe d un produit", "Exercice 12 Signe d un produit\Exercice 12 Signe d un produit.csproj", "{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 012 Signe d un produit", "Exercice 12 Signe d un produit\Exercice 012 Signe d un produit.csproj", "{3B96CDAC-456E-412A-B1FC-52E725DF6DA0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 13 Signe d un nombre v2", "Exercice 13\Exercice 13 Signe d un nombre v2.csproj", "{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 013 Signe d un nombre v2", "Exercice 13\Exercice 013 Signe d un nombre v2.csproj", "{94C9D7F2-AD9D-4E69-ADDC-9FD17C375252}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 14 Consigne", "Exercice 14 Consigne\Exercice 14 Consigne.csproj", "{045F0082-8555-4E93-80FE-E78EE2FE1A67}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 014 Consigne", "Exercice 14 Consigne\Exercice 014 Consigne.csproj", "{045F0082-8555-4E93-80FE-E78EE2FE1A67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 15 Catégorie", "Exercice 15 Catégorie\Exercice 15 Catégorie.csproj", "{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 015 Catégorie", "Exercice 15 Catégorie\Exercice 015 Catégorie.csproj", "{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 16 Impôt sur Zorglub", "Exercice 16 Impôt sur Zorglub\Exercice 16 Impôt sur Zorglub.csproj", "{48000CCC-852D-4ACD-BB71-F27BF2A23872}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 016 Impôt sur Zorglub", "Exercice 16 Impôt sur Zorglub\Exercice 016 Impôt sur Zorglub.csproj", "{48000CCC-852D-4ACD-BB71-F27BF2A23872}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 17 Facture photocopies", "Exercice 17 Facture photocopies\Exercice 17 Facture photocopies.csproj", "{29D6FDA5-5967-4735-B77E-3F5F960A2E31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 017 Facture photocopies", "Exercice 17 Facture photocopies\Exercice 017 Facture photocopies.csproj", "{29D6FDA5-5967-4735-B77E-3F5F960A2E31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 018 Assurance automobile", "Exercice 18 Assurance automobile\Exercice 018 Assurance automobile.csproj", "{A4200B9F-7138-4BCE-A13F-583D67F6530D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices 019 Predire avenir", "Exercices 19 Predire avenir\Exercices 019 Predire avenir.csproj", "{6297D1A2-7BC6-4869-816B-DD16EA61141B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 020 Predire avenir v2", "Exercice 20 Predire avenir v2\Exercice 020 Predire avenir v2.csproj", "{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +123,18 @@ Global
 		{29D6FDA5-5967-4735-B77E-3F5F960A2E31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29D6FDA5-5967-4735-B77E-3F5F960A2E31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29D6FDA5-5967-4735-B77E-3F5F960A2E31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4200B9F-7138-4BCE-A13F-583D67F6530D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4200B9F-7138-4BCE-A13F-583D67F6530D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4200B9F-7138-4BCE-A13F-583D67F6530D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4200B9F-7138-4BCE-A13F-583D67F6530D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6297D1A2-7BC6-4869-816B-DD16EA61141B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6297D1A2-7BC6-4869-816B-DD16EA61141B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6297D1A2-7BC6-4869-816B-DD16EA61141B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6297D1A2-7BC6-4869-816B-DD16EA61141B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
