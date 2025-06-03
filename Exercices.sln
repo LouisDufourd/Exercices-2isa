@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 13 Signe d un nomb
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 14 Consigne", "Exercice 14 Consigne\Exercice 14 Consigne.csproj", "{045F0082-8555-4E93-80FE-E78EE2FE1A67}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 15 Catégorie", "Exercice 15 Catégorie\Exercice 15 Catégorie.csproj", "{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{045F0082-8555-4E93-80FE-E78EE2FE1A67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA449EC5-7FF1-4CD6-9119-30C90EA09E61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
