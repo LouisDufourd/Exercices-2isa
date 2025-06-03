@@ -1,7 +1,7 @@
 ﻿using System.Text.Json;
 using System.Text.RegularExpressions;
 
-namespace Exercice_bonus
+namespace ExerciceBonus
 {
     class Program
     {
@@ -9,41 +9,56 @@ namespace Exercice_bonus
 
         public static void Main(string[] args)
         {
-            //on déclare une variable opération qui contiendra ce que l'utilisateur taperas sous forme de tableau
-            LinkedList<String> operations;
+            //on déclare et initialise une variable opération qui contiendra ce que l'utilisateur taperas sous forme de tableau
+            LinkedList<String> operations = new LinkedList<string>();
 
-            //on demande à l'utilisateur d'entrée une opération
-            Console.Write("Entrez une operation: ");
-
-            //on enregistre ce que tape l'utilisateur dans une variable asked
-            string asked = Console.ReadLine();
-
-            //on s'assure que l'utilisateur n'as pas entrée une valeur null
-            if(asked == null)
+            //on boucle à l'infinie
+            while (true)
             {
-                //on affiche à l'utilisateur qu'il faut taper une opération
-                Console.WriteLine("Merci de taper une opération");
+                //on demande à l'utilisateur d'entrée une opération
+                Console.Write("Entrez une operation (type exit or quit to exit): ");
 
-                // on ferme le programme
-                return;
+                //on enregistre ce que tape l'utilisateur dans une variable asked
+                string asked = Console.ReadLine();
+
+                //on s'assure que l'utilisateur n'as pas entrée une valeur null
+                if (asked == null)
+                {
+                    //on affiche à l'utilisateur qu'il faut taper une opération
+                    Console.WriteLine("Merci de taper une opération");
+
+                    // on ferme le programme
+                    return;
+                }
+
+                //on mets asked en minuscule pour éviter les problèmes de casse
+                switch (asked.ToLower())
+                {
+                    case "exit" or "quit" or "e" or "q":
+                        //si la variable asked contient exit, quit, e, q on ferme le programme
+                        return;
+                }
+
+                //on affecte à asked sa valeur sans les charactère invisible
+                asked = sWhitespace.Replace(asked, "");
+
+                try
+                {
+                    //on verifie que l'opération est valide
+                    IsValidOperation(asked, out operations);
+                    Console.WriteLine(JsonSerializer.Serialize(operations));
+                }
+                //on attrape les erreur qui sont des opération invalide
+                catch (InvalidOperationException e)
+                {
+                    //dis à la console d'écrire en rouge
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    //écrit le message d'erreur dans la console
+                    Console.WriteLine(e.Message);
+                    //dis à la console d'écrire en blanc
+                    Console.ForegroundColor = ConsoleColor.White;
+                }
             }
-
-            //on affecte à asked sa valeur sans les charactère invisible
-            asked = sWhitespace.Replace(asked, "");
-
-            try
-            {
-                //on verifie que l'opération est valide
-                IsValidOperation(asked, out operations);
-            } catch(Exception e)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine(e.Message);
-                Console.ForegroundColor = ConsoleColor.White;
-                return;
-            }
-
-            Console.WriteLine(JsonSerializer.Serialize(operations));
         }
 
         public static bool IsAPranthesis(char character)
