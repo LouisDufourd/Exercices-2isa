@@ -9,9 +9,7 @@ namespace ExerciceBonus
 
         public static void Main(string[] args)
         {
-            //on déclare et initialise une variable opération qui contiendra ce que l'utilisateur taperas sous forme de tableau
-            LinkedList<String> operations = new LinkedList<string>();
-
+            //on crée un falg pour sortir de la boucle quand le programme est terminer
             bool breakFlag = false;
 
             //on boucle à l'infinie
@@ -34,8 +32,6 @@ namespace ExerciceBonus
                     continue;
                 }
 
-                Console.WriteLine(asked);
-
                 //on mets asked en minuscule pour éviter les problèmes de casse
                 switch (asked.ToLower())
                 {
@@ -51,8 +47,9 @@ namespace ExerciceBonus
                 try
                 {
                     //on verifie que l'opération est valide
-                    IsValidOperation(asked, out operations);
-                    Console.WriteLine(JsonSerializer.Serialize(operations));
+                    IsValidOperation(asked);
+                    Console.WriteLine("Opération valide");
+                    Console.WriteLine(ReversePolishNotation(asked));
                 }
                 //on attrape les erreur qui sont des opération invalide
                 catch (InvalidOperationException e)
@@ -86,42 +83,22 @@ namespace ExerciceBonus
         {
             switch(character)
             {
+                //si le caaractère est + ou - ou * ou / on retourne true
                 case '+' or '-' or '*' or '/': return true;
+                //sinon on retourne false;
                 default: return false;
             }
         }
 
         public static bool IsDiviseOrMultiply(char character)
         {
+            //on retourne true si le charactère est * ou / sinon on retourne false
             return character == '*' || character == '/';
         }
 
-        public static string AddToList(LinkedList<string> operations, string temp, char operation)
+
+        public static void IsValidOperation(string operation)
         {
-            //on regarde si temp n'est pas vide
-            if(temp != "")
-            {
-                //on ajoute le contenue de currentNumber dans operation
-                operations.AddLast(temp);
-            }
-
-            //on regarde si le charactère est une soustraction
-            if (operation == '-')
-            {
-                //on assigne le signe - à currentNumber
-                return "-";
-            }
-
-            //on ajoute l'opérateur ou la parenthèse à la liste opérations
-            operations.AddLast(operation.ToString());
-            //on assigne une valeur vide à currentNumber
-            return "";
-        }
-
-        public static void IsValidOperation(string operation, out LinkedList<string> operations)
-        {
-            //on initialise la variable operations
-            operations = new LinkedList<string>();
 
             //on déclare et assigne une variable temporaire appeler currentNumber
             string currentNumber = "";
@@ -140,13 +117,6 @@ namespace ExerciceBonus
                     {
                         //on lance une erreur
                         throw new InvalidOperationException($"L'opération ne peux pas contenir autre chose que des chiffres, des opérateur ou des parenthèse: {currentNumber}");
-                    }
-
-                    //on regarde si c'est la dernier boucle
-                    if (i + 1 == operation.Length)
-                    {
-                        //on ajoute le numéro à la liste
-                        operations.AddLast(currentNumber);
                     }
 
                     //on continue la boucle sans faire les instructions suivantes
@@ -177,21 +147,163 @@ namespace ExerciceBonus
                     }
                 }
                 catch (IndexOutOfRangeException) { }
-
-                //on ajoute à la liste l'opérateur et le chiffre actuelle
-                currentNumber = AddToList(operations, currentNumber, operation[i]);
             }
         }
 
-        public static string AnalyzeOperation(List<string> operations)
+        public static string ReversePolishNotation(string operation)
         {
-            string analyze = "";
-            for (int i = 0; i < operations.Count; i++)
+            Stack<char> stack = new Stack<char>();
+            string rpn = "";
+            string number = "";
+
+            //bool for parenthesis
+            bool isParenthesisOpen = false;
+            //bool for formating
+            bool isFirstNumber = true;
+            
+            for (int i = 0; i < operation.Length; i++)
             {
-                
+                if (!IsInteger(operation[i].ToString()))
+                {
+                    //the ifs here are just for formating
+                    if(!isFirstNumber && number != "")
+                    {
+                        number = ' ' + number;
+                    }
+
+                    if (isFirstNumber && number != "")
+                    {
+                        isFirstNumber = false;
+                    }
+
+                    //add the number on the reverse polish number
+                    rpn += number;
+                    //assign empty to number
+                    number = "";
+
+                    //check if it's an open parentesis
+                    if (operation[i] == '(')
+                    {
+                        isParenthesisOpen = true;
+                    }
+
+                    do
+                    {
+                        //if the stack is empty we push the operator to the stack
+                        if(stack.Count == 0)
+                        {
+                            stack.Push(operation[i]);
+                            break;
+                        }
+
+                        //if the parenthesis is open we check if we see a close parentesis
+                        if(isParenthesisOpen)
+                        {
+                            //if we do we empty the stack until the open prenthesis
+                            //else if the previous one in the stack is an open parentesis we push in the stack
+                            //else if the operator is prioritar then we push it to the stack
+                            //else we pop the stack until we are at the open prenthesis then we push the operation in the stack
+                            if (operation[i] == ')')
+                            {
+                                while(stack.Count > 0)
+                                {
+                                    if(stack.Peek() == '(')
+                                    {
+                                        stack.Pop();
+                                    }
+                                    else
+                                    {
+                                        rpn += " " + stack.Pop();
+                                    }
+                                }
+                            }
+                            else if(stack.Peek() == '(')
+                                {
+                                stack.Push(operation[i]);
+                                break;
+                            }
+                            else if (PIMDAS(operation[i], stack.Peek()))
+                            {
+                                stack.Push(operation[i]);
+                            }
+                            else
+                            {
+                                while (stack.Peek() != '(')
+                                {
+                                    rpn += " " + stack.Pop();
+                                }
+                                stack.Push(operation[i]);
+                            }
+                            //we break out of the do while
+                            break;
+                        }
+
+                        //if the operation as priority in we push it ot the stakc else we pop the operation of the stack util the stack is empty or if the operation has the priority
+                        if (PIMDAS(operation[i], stack.Peek()))
+                        {
+                            stack.Push(operation[i]);
+                            //we break out of the do while
+                            break;
+                        }
+                        
+                        rpn += " " + stack.Pop();
+                    } while (stack.Count >= 0);
+                }
+                //to recreate the number on mulitple loop
+                else
+                {
+                    number += operation[i];
+                }
+            }
+            //add a space to the number for formating
+            rpn += ' ' + number;
+            //we empty the stack in the rpn
+            while (stack.Count > 0)
+            {
+                rpn += " " + stack.Pop();
             }
 
-            return analyze;
+            //we have now the reverse polish number
+            return rpn;
+        }
+
+        //si le premier opérateur est prioritaire on retourne vrai sinon faux si c'est dans une parenthèse c'est toujour faux
+        public static bool PIMDAS(char firstOperator, char secondOperator)
+        {
+            switch(secondOperator)
+            {
+                case '(': return false;
+                case '^': 
+                    switch(firstOperator)
+                    {
+                        case '(': return true;
+                        default: return false;
+                    } 
+                case '*': 
+                    switch(firstOperator)
+                    {
+                        case '(' or '^' or '/': return true;
+                        default: return false;
+                    }
+                case '/':
+                    switch(firstOperator)
+                    {
+                        case '(' or '^' or '*': return true;
+                        default: return false;
+                    }
+                case '+':
+                    switch (firstOperator)
+                    {
+                        case '(' or '^' or '*' or '/' or '-': return true;
+                        default: return false;
+                    }
+                default:
+                    switch (firstOperator)
+                    {
+                        case '(' or '^' or '*' or '/' or '+': return true;
+                        default: return false;
+                    }
+            }
         }
     }
 }

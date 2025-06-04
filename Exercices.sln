@@ -45,6 +45,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercices 019 Predire aveni
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 020 Predire avenir v2", "Exercice 20 Predire avenir v2\Exercice 020 Predire avenir v2.csproj", "{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 021 Election legislative", "Exercice 21\Exercice 021 Election legislative.csproj", "{AFDA4E1A-9007-42F8-A848-2E06EA72C0A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 022 Verification d'une date", "Verification d'une date\Exercice 022 Verification d'une date.csproj", "{E1C01580-38D9-448E-A5FF-26BF2655C28A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -135,6 +139,14 @@ Global
 		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71FAEC6A-ED0E-433E-A45A-BB9134AE89EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFDA4E1A-9007-42F8-A848-2E06EA72C0A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFDA4E1A-9007-42F8-A848-2E06EA72C0A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFDA4E1A-9007-42F8-A848-2E06EA72C0A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFDA4E1A-9007-42F8-A848-2E06EA72C0A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
