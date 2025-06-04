@@ -49,6 +49,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 021 Election legis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 022 Verification d'une date", "Verification d'une date\Exercice 022 Verification d'une date.csproj", "{E1C01580-38D9-448E-A5FF-26BF2655C28A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 023 Affichage de plusieur nombre", "Exercice 023 Affichage de plusieur nombre\Exercice 023 Affichage de plusieur nombre.csproj", "{B964E6C6-D67F-4CE7-8D17-DE1BFA5CAFB6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 024 Somme de nombre entier", "Exercice 024 Somme de nombre entier\Exercice 024 Somme de nombre entier.csproj", "{2E08D917-6BAF-46D9-9BE5-76F59E03ABA9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 025 Somme de nombre entier v2", "Exercice 025 Somme de nombre entier v2\Exercice 025 Somme de nombre entier v2.csproj", "{6842D535-0210-4354-8C65-E1DD6566C1FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 026 Somme des N premier entiers pairs", "Exercice 026 Somme des N premier entiers pairs\Exercice 026 Somme des N premier entiers pairs.csproj", "{B53B4065-0973-44F6-ADA6-E85E34D0E282}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 027 Table de multiplication", "Exercice 027 Table de multiplication\Exercice 027 Table de multiplication.csproj", "{CCC87331-8A23-478C-80D1-4A82B1666E06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 028 Enter 1 et 3", "Exercice 028 Enter 1 et 3\Exercice 028 Enter 1 et 3.csproj", "{375F92C9-99CD-4AB7-9CDA-31E87193396C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +159,30 @@ Global
 		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1C01580-38D9-448E-A5FF-26BF2655C28A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B964E6C6-D67F-4CE7-8D17-DE1BFA5CAFB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B964E6C6-D67F-4CE7-8D17-DE1BFA5CAFB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B964E6C6-D67F-4CE7-8D17-DE1BFA5CAFB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B964E6C6-D67F-4CE7-8D17-DE1BFA5CAFB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E08D917-6BAF-46D9-9BE5-76F59E03ABA9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E08D917-6BAF-46D9-9BE5-76F59E03ABA9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E08D917-6BAF-46D9-9BE5-76F59E03ABA9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E08D917-6BAF-46D9-9BE5-76F59E03ABA9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6842D535-0210-4354-8C65-E1DD6566C1FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6842D535-0210-4354-8C65-E1DD6566C1FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6842D535-0210-4354-8C65-E1DD6566C1FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6842D535-0210-4354-8C65-E1DD6566C1FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B53B4065-0973-44F6-ADA6-E85E34D0E282}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B53B4065-0973-44F6-ADA6-E85E34D0E282}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B53B4065-0973-44F6-ADA6-E85E34D0E282}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B53B4065-0973-44F6-ADA6-E85E34D0E282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC87331-8A23-478C-80D1-4A82B1666E06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC87331-8A23-478C-80D1-4A82B1666E06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC87331-8A23-478C-80D1-4A82B1666E06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC87331-8A23-478C-80D1-4A82B1666E06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{375F92C9-99CD-4AB7-9CDA-31E87193396C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{375F92C9-99CD-4AB7-9CDA-31E87193396C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{375F92C9-99CD-4AB7-9CDA-31E87193396C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{375F92C9-99CD-4AB7-9CDA-31E87193396C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
