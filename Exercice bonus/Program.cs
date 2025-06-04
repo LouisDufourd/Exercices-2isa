@@ -47,9 +47,10 @@ namespace ExerciceBonus
                 try
                 {
                     //on verifie que l'opération est valide
-                    IsValidOperation(asked);
+                    string reversePolishNotation = ReversePolishNotation(asked);
+                    IsValidOperation(reversePolishNotation);
                     Console.WriteLine("Opération valide");
-                    Console.WriteLine(ReversePolishNotation(asked));
+                    Console.WriteLine(reversePolishNotation);
                 }
                 //on attrape les erreur qui sont des opération invalide
                 catch (InvalidOperationException e)
@@ -97,59 +98,27 @@ namespace ExerciceBonus
         }
 
 
-        public static void IsValidOperation(string operation)
+        public static void IsValidOperation(string reversePolishNotation)
         {
-
-            //on déclare et assigne une variable temporaire appeler currentNumber
-            string currentNumber = "";
-
-            //on boucle sur tous les charactère de la chaine contenue dans variable
-            for (int i = 0; i < operation.Length; i++)
+            string[] rpn = reversePolishNotation.Split(" ");
+            foreach(string item in rpn)
             {
-                //on regarde si le charactère n'est pas un opérateur ou un charactère invisible
-                if (!IsAnOperator(operation[i]) && !IsAPranthesis(operation[i]))
+                if(IsInteger(item))
                 {
-                    //on mets dans asked le charactère qui n'est pas une opération ou une parenthèse
-                    currentNumber += operation[i];
-
-                    //on s'assure que le nombre est bien un nombre
-                    if (!IsInteger(currentNumber))
-                    {
-                        //on lance une erreur
-                        throw new InvalidOperationException($"L'opération ne peux pas contenir autre chose que des chiffres, des opérateur ou des parenthèse: {currentNumber}");
-                    }
-
-                    //on continue la boucle sans faire les instructions suivantes
                     continue;
                 }
-
-                //si currentNumber n'est pas vide et si currentNumber n'est pas un nombre entier
-                if (currentNumber != "" && !IsInteger(currentNumber))
+                if(item.Length != 1)
                 {
-                    //on lance une erreur
-                    throw new InvalidOperationException($"L'opération ne peux pas contenir autre chose que des chiffres, des opérateur ou des parenthèse: {currentNumber}");
+                    throw new InvalidOperationException($"L'item \"{item}\" n'est ni un nombre ni un opérateur");
                 }
-
-                try
+                if (!IsAnOperator(item[0]))
                 {
-                    //on regarde si l'utilisateur n'as pas taper deux fois un opérateur
-                    if (IsAnOperator(operation[i - 1]) && IsAnOperator(operation[i]))
-                    {
-                        //on lance une erreur
-                        throw new InvalidOperationException("Il ne peux pas y avoir deux fois un opérateur à la suite des autres");
-                    }
-
-                    //on regarde si le charactère précédent est une parenthèse et que l'opérateur est une multiplication ou une division
-                    if (operation[i - 1] == '(' && IsDiviseOrMultiply(operation[i]))
-                    {
-                        //on lance une erreur
-                        throw new InvalidOperationException("L'opérateur après une parenthèse ne peux être une multiplisation ou division");
-                    }
+                    throw new InvalidOperationException($"L'item \"{item}\" n'est pas une opération valide");
                 }
-                catch (IndexOutOfRangeException) { }
             }
         }
 
+        //reformat l'operation sous la forme du reverse parsing notation
         public static string ReversePolishNotation(string operation)
         {
             Stack<char> stack = new Stack<char>();
@@ -163,7 +132,7 @@ namespace ExerciceBonus
             
             for (int i = 0; i < operation.Length; i++)
             {
-                if (!IsInteger(operation[i].ToString()))
+                if (IsAnOperator(operation[i]))
                 {
                     //the ifs here are just for formating
                     if(!isFirstNumber && number != "")
@@ -176,7 +145,7 @@ namespace ExerciceBonus
                         isFirstNumber = false;
                     }
 
-                    //add the number on the reverse polish number
+                    //add the number on the reverse polish notation
                     rpn += number;
                     //assign empty to number
                     number = "";
@@ -263,11 +232,11 @@ namespace ExerciceBonus
                 rpn += " " + stack.Pop();
             }
 
-            //we have now the reverse polish number
+            //we have now the reverse polish notation
             return rpn;
         }
 
-        //si le premier opérateur est prioritaire on retourne vrai sinon faux si c'est dans une parenthèse c'est toujour faux
+        //si le premier opérateur est prioritaire on retourne vrai sinon faux
         public static bool PIMDAS(char firstOperator, char secondOperator)
         {
             switch(secondOperator)
