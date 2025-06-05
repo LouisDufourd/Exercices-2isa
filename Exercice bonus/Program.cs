@@ -1,11 +1,19 @@
-﻿using System.Text.Json;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace ExerciceBonus
 {
     class Program
     {
         private static readonly Regex sWhitespace = new Regex(@"\s+");
+
+        /**
+         * La première section du regex s'assure que la presence d'un signe soit quand même un match "(-|\+)?" on dit si il y a - ou + 0 ou 1 fois
+         * La deuxième partie correspond à la partie entier "[0-9]+" ici on dit que si la chaine à un charactère entre 0 et 9 et que ce charactère peut se répéte 1 ou plusieure fois
+         * ça ne matcheras pas si il n'y a pas de chiffre
+         * La troisième partie est pour la partie décimal du nombre "((\,|.)[0-9]+)?" ici on dit que si il y a un . ou une , on attent un ou plusieur charactère entre 0 et 9
+         * ensuit on dit que ça peux exister 0 ou 1 fois (ex : .89 match avec cette dernier partie, .89.9 ne match pas avec cette dernier partie)
+         **/
+        private static readonly Regex isNumberRegex = new Regex("(-|\\+)?[0-9]+((\\,|.)[0-9]+)?");
 
         public static void Main(string[] args)
         {
@@ -19,7 +27,7 @@ namespace ExerciceBonus
                 Console.Write("Entrez une operation (type exit or quit to exit): ");
 
                 //on enregistre ce que tape l'utilisateur dans une variable asked
-                string asked = Console.ReadLine();
+                string? asked = Console.ReadLine();
 
                 //on s'assure que l'utilisateur n'as pas entrée une valeur null
                 if (asked == null)
@@ -51,6 +59,7 @@ namespace ExerciceBonus
                     Console.WriteLine(reversePolishNotation);
                     IsValidOperation(reversePolishNotation);
                     Console.WriteLine("Opération valide");
+                    Console.WriteLine(Analyse(reversePolishNotation));
                 }
                 //on attrape les erreur qui sont des opération invalide
                 catch (InvalidOperationException e)
@@ -71,18 +80,11 @@ namespace ExerciceBonus
             return false;
         }
 
-        public static bool IsInteger(string value)
-        {
-            //on essaye de convertir la chaine de charactère en un nombre entier et on stock dans une varible si ça à marcher
-            bool success = int.TryParse(value, out int _);
-
-            //on retourne si la convertion à fonctionner ou non
-            return success;
-        }
+        public static bool IsNumber(string value) => isNumberRegex.IsMatch(value);
 
         public static bool IsAnOperator(char character)
         {
-            switch(character)
+            switch (character)
             {
                 //si le caaractère est + ou - ou * ou / on retourne true
                 case '+' or '-' or '*' or '/': return true;
@@ -97,17 +99,16 @@ namespace ExerciceBonus
             return character == '*' || character == '/';
         }
 
-
         public static void IsValidOperation(string reversePolishNotation)
         {
             string[] rpn = reversePolishNotation.Split(" ");
-            foreach(string item in rpn)
+            foreach (string item in rpn)
             {
-                if(IsInteger(item))
+                if (IsNumber(item))
                 {
                     continue;
                 }
-                if(item.Length != 1)
+                if (item.Length != 1)
                 {
                     throw new InvalidOperationException($"L'item \"{item}\" n'est ni un nombre ni un opérateur");
                 }
@@ -129,13 +130,13 @@ namespace ExerciceBonus
             bool isParenthesisOpen = false;
             //bool for formating
             bool isFirstNumber = true;
-            
+
             for (int i = 0; i < operation.Length; i++)
             {
                 if (IsAnOperator(operation[i]))
                 {
                     //the ifs here are just for formating
-                    if(!isFirstNumber && number != "")
+                    if (!isFirstNumber && number != "")
                     {
                         number = ' ' + number;
                     }
@@ -159,14 +160,14 @@ namespace ExerciceBonus
                     do
                     {
                         //if the stack is empty we push the operator to the stack
-                        if(stack.Count == 0)
+                        if (stack.Count == 0)
                         {
                             stack.Push(operation[i]);
                             break;
                         }
 
                         //if the parenthesis is open we check if we see a close parentesis
-                        if(isParenthesisOpen)
+                        if (isParenthesisOpen)
                         {
                             //if we do we empty the stack until the open prenthesis
                             //else if the previous one in the stack is an open parentesis we push in the stack
@@ -174,9 +175,9 @@ namespace ExerciceBonus
                             //else we pop the stack until we are at the open prenthesis then we push the operation in the stack
                             if (operation[i] == ')')
                             {
-                                while(stack.Count > 0)
+                                while (stack.Count > 0)
                                 {
-                                    if(stack.Peek() == '(')
+                                    if (stack.Peek() == '(')
                                     {
                                         stack.Pop();
                                     }
@@ -186,8 +187,8 @@ namespace ExerciceBonus
                                     }
                                 }
                             }
-                            else if(stack.Peek() == '(')
-                                {
+                            else if (stack.Peek() == '(')
+                            {
                                 stack.Push(operation[i]);
                                 break;
                             }
@@ -214,7 +215,7 @@ namespace ExerciceBonus
                             //we break out of the do while
                             break;
                         }
-                        
+
                         rpn += " " + stack.Pop();
                     } while (stack.Count >= 0);
                 }
@@ -239,23 +240,23 @@ namespace ExerciceBonus
         //si le premier opérateur est prioritaire on retourne vrai sinon faux
         public static bool PIMDAS(char firstOperator, char secondOperator)
         {
-            switch(secondOperator)
+            switch (secondOperator)
             {
                 case '(': return false;
-                case '^': 
-                    switch(firstOperator)
+                case '^':
+                    switch (firstOperator)
                     {
                         case '(': return true;
                         default: return false;
-                    } 
-                case '*': 
-                    switch(firstOperator)
+                    }
+                case '*':
+                    switch (firstOperator)
                     {
-                        case '(' or '^' or '/': return true;
+                        case '(' or '^': return true;
                         default: return false;
                     }
                 case '/':
-                    switch(firstOperator)
+                    switch (firstOperator)
                     {
                         case '(' or '^' or '*': return true;
                         default: return false;
@@ -263,16 +264,120 @@ namespace ExerciceBonus
                 case '+':
                     switch (firstOperator)
                     {
-                        case '(' or '^' or '*' or '/' or '-': return true;
+                        case '(' or '^' or '*' or '/': return true;
                         default: return false;
                     }
-                default:
+                case '-':
                     switch (firstOperator)
                     {
                         case '(' or '^' or '*' or '/' or '+': return true;
                         default: return false;
                     }
             }
+
+            return false;
         }
+
+        public static string Analyse(string reversePolishNotation)
+        {
+            string analyse = "";
+            string[] rpn = reversePolishNotation.Split(" ");
+            List<string> operands;
+            List<char> operators;
+
+            GetOperandAndOperator(reversePolishNotation, out operands, out operators);
+
+            for (int i = 0; i < operands.Count; i++)
+            {
+                if (operands.Count > i + 1)
+                {
+                    string firstNumber = operands[i];
+                    string secondNumber = operands[i + 1];
+                    char currentOperator = operators[0];
+                    operators.RemoveAt(0);
+
+                    if(i == 0)
+                    {
+                        switch (currentOperator)
+                        {
+                            case '+':
+                                analyse += $"On addition {firstNumber} par {secondNumber}";
+                                break;
+                            case '-':
+                                analyse += $"On soustrait {firstNumber} par {secondNumber}";
+                                break;
+                            case '/':
+                                analyse += $"On divise {firstNumber} par {secondNumber}";
+                                break;
+                            case '*':
+                                analyse += $"On multiplie {firstNumber} par {secondNumber}";
+                                break;
+                        }
+                        i++;
+                    }
+                    else
+                    {
+                        switch (currentOperator)
+                        {
+                            case '+':
+                                analyse += $"Puis on addition par {firstNumber}";
+                                break;
+                            case '-':
+                                analyse += $"Puis on soustrait par {firstNumber}";
+                                break;
+                            case '/':
+                                analyse += $"Puis on divise par {firstNumber}";
+                                break;
+                            case '*':
+                                analyse += $"Puis on multiplie par {firstNumber}";
+                                break;
+                        }
+                    }
+                    analyse += "\n";
+                    continue;
+                }
+                else
+                {
+                    string firstNumber = operands[i];
+                    char currentOperator = operators[0];
+                    switch (currentOperator)
+                    {
+                        case '+':
+                            analyse += $"Puis on addition par {firstNumber}";
+                            break;
+                        case '-':
+                            analyse += $"Puis on soustrait par {firstNumber}";
+                            break;
+                        case '/':
+                            analyse += $"Puis on divise par {firstNumber}";
+                            break;
+                        case '*':
+                            analyse += $"Puis on multiplie par {firstNumber}";
+                            break;
+                    }
+                }
+            }
+            return analyse;
+        }
+
+        public static void GetOperandAndOperator(string reversePolishNotaion, out List<string> operands, out List<char> operators) 
+        {
+            operands = new List<string>();
+            operators = new List<char>();
+            string[] rpn = reversePolishNotaion.Split(" ");
+
+            foreach (var item in rpn)
+            {
+                if(IsNumber(item))
+                {
+                    operands.Add(item);
+                }
+                else if (item.Length == 1) 
+                {
+                    operators.Add(item[0]);
+                }
+            }
+        }
+
     }
 }
