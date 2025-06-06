@@ -110,6 +110,7 @@ namespace Exercice_Test
         {
             string rpn = ReversePolishNotationConverter.ReversePolishNotation(infix);
             Assert.AreEqual(sWhitespace.Replace(expected, ""), sWhitespace.Replace(rpn, ""));
+            Console.WriteLine();
         }
     }
 }
