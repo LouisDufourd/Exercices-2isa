@@ -53,21 +53,23 @@
                         //if we see a close prentesis we empty the stack until the open prenthesis
                         if (currentChar == ')')
                         {
-                            bool breakFlag = false;
-                            while(!breakFlag)
+                            while (numberOfParenthesisOpen > 0)
                             {
-                                if(stack.Peek() == '(')
+                                if (stack.Peek() == '(')
                                 {
                                     stack.Pop();
-                                    breakFlag = true;
+                                    numberOfParenthesisOpen--;
                                     continue;
                                 }
 
-                                rpn += " " + stack.Peek();
-                                numberOfParenthesisOpen--;
+                                rpn += " " + stack.Pop();
                             }
                         }
                         //else if the previous one in the stack is an open parentesis we push in the stack
+                        else if (stack.Peek() == '(')
+                        {
+                            stack.Push(currentChar);
+                        }
                         //else if the operator as a higher priority than the one in the stack we push it in the stack
                         else if (PIMDAS(currentChar) > PIMDAS(stack.Peek()))
                         {
@@ -76,7 +78,7 @@
                         //else if the operator as a lower priority we pop the stack until we are at the open prenthesis then we push the operator in the stack
                         else if (PIMDAS(currentChar) < PIMDAS(stack.Peek()))
                         {
-                            while(PIMDAS(currentChar) < PIMDAS(stack.Peek()))
+                            while (PIMDAS(currentChar) < PIMDAS(stack.Peek()))
                             {
                                 rpn += " " + stack.Pop();
                             }
@@ -85,9 +87,11 @@
                         //else the operator as the same priority than the one in the stack so the one in the stack is priority
                         else
                         {
-                            while (PIMDAS(currentChar) == PIMDAS(stack.Peek()) && (currentChar != '*' || currentChar != '+'))
+                            bool breakFlag = (PIMDAS(currentChar) == PIMDAS(stack.Peek())) && (currentChar != '*' || currentChar != '+');
+                            while (breakFlag)
                             {
                                 rpn += " " + stack.Pop();
+                                breakFlag = PIMDAS(currentChar) == PIMDAS(stack.Peek()) && (currentChar != '*' || currentChar != '+');
                             }
                             stack.Push(currentChar);
                         }
@@ -117,9 +121,15 @@
                         //else the operator as the same priority than the one in the stack so the one in the stack is priority
                         else
                         {
-                            while (stack.TryPeek(out char op) || currentChar == PIMDAS(op))
+                            bool breakFlag = PIMDAS(currentChar) == PIMDAS(stack.Peek());
+                            while (breakFlag)
                             {
                                 rpn += " " + stack.Pop();
+                                breakFlag = stack.Count() > 0;
+                                if(breakFlag)
+                                {
+                                    breakFlag = PIMDAS(currentChar) == PIMDAS(stack.Peek());
+                                }
                             }
                             stack.Push(currentChar);
                         }
