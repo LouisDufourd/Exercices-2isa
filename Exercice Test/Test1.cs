@@ -57,9 +57,9 @@ namespace Exercice_Test
             Assert.AreEqual(expected, result);
         }
 
-        [DataTestMethod]
+        /*[DataTestMethod]
         
-        /*[DataRow("3 + 4", "3 4 +")]
+        [DataRow("3 + 4", "3 4 +")]
         [DataRow("3 + 4 * 2", "3 4 2 * +")]
         [DataRow("3 * 4 + 2", "3 4 * 2 +")]
         [DataRow("( 3 + 4 ) * 2", "3 4 + 2 *")]
