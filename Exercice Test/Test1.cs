@@ -112,5 +112,19 @@ namespace Exercice_Test
             Assert.AreEqual(sWhitespace.Replace(expected, ""), sWhitespace.Replace(rpn, ""));
             Console.WriteLine();
         }
+
+        [TestMethod]
+        [DataRow("3 4 +", "7")]
+        [DataRow("10 6 -", "4")]
+        [DataRow("2 3 *", "6")]
+        [DataRow("8 4 /", "2")]
+        [DataRow("5 1 2 + 4 * + 3 -", "14")]
+        [DataRow("10 2 8 * + 3 -", "23")]
+        [DataRow("4 2 5 * + 1 3 2 * + /", "2")]
+        public void SolveTest(string input, string expected)
+        {
+            string result = ReversePolishNotationConverter.Solve(input);
+            Assert.AreEqual(expected, result);
+        }
     }
 }

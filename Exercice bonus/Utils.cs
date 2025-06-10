@@ -36,6 +36,17 @@ namespace Exercice_bonus
             }
         }
 
+        public static bool IsAnOperator(string characters)
+        {
+            switch (characters)
+            {
+                //si le caaractère est + ou - ou * ou / on retourne true
+                case "+" or "-" or "*" or "/" or "%" or "^": return true;
+                //sinon on retourne false;
+                default: return false;
+            }
+        }
+
         public static bool IsDiviseOrMultiply(char character)
         {
             //on retourne true si le charactère est * ou / sinon on retourne false

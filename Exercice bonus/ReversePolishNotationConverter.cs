@@ -1,5 +1,7 @@
 ﻿
 
+using System.Data;
+
 namespace Exercice_bonus
 {
     public class ReversePolishNotationConverter
@@ -151,9 +153,91 @@ namespace Exercice_bonus
             return removedCharacters;
         }
 
-        internal static int Solve(string reversePolishNotation)
+        public static string Solve(string reversePolishNotation)
         {
-            throw new NotImplementedException();
+            string result = "";
+            string[] rpn = reversePolishNotation.Split(' ');
+            Stack<string> operands = new Stack<string>();
+            foreach(string item in rpn)
+            {
+                if(!Utils.IsAnOperator(item))
+                {
+                    operands.Push(item);
+                    continue;
+                }
+
+                if (operands.Count == 1)
+                {
+                    string temp = operands.Pop();
+                    switch (item)
+                    {
+                        case "^" or "*" or "/" or "%":
+                            operands.Push("1");
+                            operands.Push(temp);
+                            break;
+                        case "+" or "-":
+                            operands.Push("0");
+                            operands.Push(temp);
+                            break;
+                    }
+                }
+
+                if (operands.Count < 2)
+                {
+                    throw new InvalidOperationException($"Il n'y a pas assez d'opérande pour faire un calcul");
+                }
+
+                string first = operands.Pop();
+                string second = operands.Pop();
+                result = Operate(first, second, item);
+                operands.Push(result);
+
+                Console.WriteLine($"{second} {item} {first} = {result}");
+            }
+
+            return result;
+        }
+
+        public static string Operate(string firstNumber, string secondNumber, string op)
+        {
+            string result = "";
+
+            if(!Utils.IsNumber(firstNumber))
+            {
+                throw new InvalidOperationException($"The number {firstNumber} is not a valid number");
+            }
+
+            if (!Utils.IsNumber(firstNumber))
+            {
+                throw new InvalidOperationException($"The number {secondNumber} is not a valid number");
+            }
+
+            double intFirstNumber = double.Parse(firstNumber);
+            double intSecondNumber = double.Parse(secondNumber);
+
+            switch(op)
+            {
+                case "+":
+                    result = $"{intSecondNumber + intFirstNumber}";
+                    break;
+                case "-":
+                    result = $"{intSecondNumber - intFirstNumber}";
+                    break;
+                case "*":
+                    result = $"{intSecondNumber * intFirstNumber}";
+                    break;
+                case "/":
+                    result = $"{intSecondNumber / intFirstNumber}";
+                    break;
+                case "%":
+                    result = $"{intSecondNumber % intFirstNumber}";
+                    break;
+                case "^":
+                    result = $"{Math.Pow(intSecondNumber, intFirstNumber)}";
+                    break;
+            }
+
+            return result;
         }
     }
 }
