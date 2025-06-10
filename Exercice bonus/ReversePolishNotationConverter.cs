@@ -1,4 +1,6 @@
-﻿namespace Exercice_bonus
+﻿
+
+namespace Exercice_bonus
 {
     public class ReversePolishNotationConverter
     {
@@ -16,149 +18,47 @@
 
             for (int i = 0; i < operation.Length; i++)
             {
+                //current selected char
                 char currentChar = operation[i];
-                if (Utils.IsAnOperator(currentChar) || Utils.IsAPranthesis(currentChar))
-                {
-                    //the ifs here are just for formating
-                    if (!isFirstNumber && number != "")
-                    {
-                        number = " " + number;
-                    }
-
-                    if (isFirstNumber && number != "")
-                    {
-                        isFirstNumber = false;
-                    }
-
-                    //add the number on the reverse polish notation
-                    rpn += number;
-                    //assign empty to number
-                    number = "";
-
-                    //check if it's an open parentesis
-                    if (currentChar == '(')
-                    {
-                        numberOfParenthesisOpen++;
-                    }
-                    //if the stack is empty we push the operator to the stack
-                    if (stack.Count == 0)
-                    {
-                        stack.Push(operation[i]);
-                        continue;
-                    }
-
-                    //if the parenthesis is open we check if we see a close parentesis
-                    if (numberOfParenthesisOpen > 0)
-                    {
-                        //if we see a close prentesis we empty the stack until the open prenthesis
-                        if (currentChar == ')')
-                        {
-                            while (numberOfParenthesisOpen > 0)
-                            {
-                                if (stack.Peek() == '(')
-                                {
-                                    stack.Pop();
-                                    numberOfParenthesisOpen--;
-                                    continue;
-                                }
-
-                                rpn += " " + stack.Pop();
-                            }
-                        }
-                        //else if the previous one in the stack is an open parentesis we push in the stack
-                        else if (stack.Peek() == '(')
-                        {
-                            stack.Push(currentChar);
-                        }
-                        //else if the operator as a higher priority than the one in the stack we push it in the stack
-                        else if (PIMDAS(currentChar) > PIMDAS(stack.Peek()))
-                        {
-                            stack.Push(currentChar);
-                        }
-                        //else if the operator as a lower priority we pop the stack until we are at the open prenthesis then we push the operator in the stack
-                        else if (PIMDAS(currentChar) < PIMDAS(stack.Peek()))
-                        {
-                            while (PIMDAS(currentChar) < PIMDAS(stack.Peek()))
-                            {
-                                rpn += " " + stack.Pop();
-                            }
-                            stack.Push(currentChar);
-                        }
-                        //else the operator as the same priority than the one in the stack so the one in the stack is priority
-                        else
-                        {
-                            bool breakFlag = (PIMDAS(currentChar) == PIMDAS(stack.Peek())) && (currentChar != '*' || currentChar != '+');
-                            while (breakFlag)
-                            {
-                                rpn += " " + stack.Pop();
-                                breakFlag = PIMDAS(currentChar) == PIMDAS(stack.Peek()) && (currentChar != '*' || currentChar != '+');
-                            }
-                            stack.Push(currentChar);
-                        }
-                    }
-                    else {
-                        //si la stack est vide
-                        if(stack.Count == 0)
-                        {
-                            //on push l'operateur dans la stack
-                            stack.Push(currentChar);
-                        }
-                        //else if the operator has an higher priority than the previous one
-                        else if (PIMDAS(currentChar) > PIMDAS(stack.Peek()))
-                        {
-                            //we push it in the stack
-                            stack.Push(currentChar);
-                        }
-                        //else if the operator as a lower priority we pop the stack until we are at the open prenthesis then we push the operator in the stack
-                        else if (PIMDAS(currentChar) < PIMDAS(stack.Peek()))
-                        {
-                            while (stack.TryPeek(out char op) || currentChar < PIMDAS(op))
-                            {
-                                rpn += " " + stack.Pop();
-                            }
-                            stack.Push(currentChar);
-                        }
-                        //else the operator as the same priority than the one in the stack so the one in the stack is priority
-                        else
-                        {
-                            bool breakFlag = PIMDAS(currentChar) == PIMDAS(stack.Peek());
-                            while (breakFlag)
-                            {
-                                rpn += " " + stack.Pop();
-                                breakFlag = stack.Count() > 0;
-                                if(breakFlag)
-                                {
-                                    breakFlag = PIMDAS(currentChar) == PIMDAS(stack.Peek());
-                                }
-                            }
-                            stack.Push(currentChar);
-                        }
-                    }
-                }
-                //to recreate the number on mulitple loop
-                else
+                //currentOperator
+                char currentOperator;
+                //is the stack empty
+                bool isStackEmpty = stack.TryPeek(out currentOperator);
+                
+                //if the PEMDAS is less than 0 then it's not an operator and we assume it's a number
+                if(PEMDAS(currentChar) < 0)
                 {
                     number += currentChar;
+                    continue;
                 }
+
+                rpn = AddToRPN(rpn, number);
+                if(number != "")
+                {
+                    rpn = AddToRPN(rpn, " ");
+                }
+                number = "";
+                rpn = AddToRPN(rpn, AddToStack(stack, currentChar));
             }
-            //add a space to the number for formating
-            rpn += ' ' + number;
-            //we empty the stack in the rpn
-            while (stack.Count > 0)
+
+            if(number != "")
             {
-                rpn += " " + stack.Pop();
+                rpn = AddToRPN(rpn, number);
+                rpn += " ";
             }
+
+            rpn = AddToRPN(rpn, emptyStack(stack, -1));
 
             //we have now the reverse polish notation
             return rpn;
         }
 
-        public static int PIMDAS(char current_operator)
+        public static int PEMDAS(char current_operator)
         {
             switch (current_operator)
             {
                 case '(' or ')':
-                    return 0;
+                    return 4;
                 case '^':
                     return 3;
                 case '*' or '/' or '%':
@@ -168,6 +68,92 @@
                 default:
                     return -1;
             }
+        }
+
+        private static string AddToRPN(string rpn, string toAdd)
+        {
+            rpn += toAdd;
+            return rpn;
+        }
+
+        private static string AddToRPN(string rpn, char toAdd)
+        {
+            return AddToRPN(rpn, $"{toAdd}");
+        }
+
+        private static string AddToStack(Stack<char> stack, char toAdd)
+        {
+            string removedCharacters = "";
+
+            char currentOperator;
+
+            bool isNotEmpty = stack.TryPeek(out currentOperator);
+
+            int toAddPemdas;
+            int currentOperatorPemdas;
+
+            if(!isNotEmpty)
+            {
+                stack.Push(toAdd);
+                return removedCharacters;
+            }
+
+            toAddPemdas = PEMDAS(toAdd);
+            currentOperatorPemdas = PEMDAS(stack.Peek());
+
+            if (toAddPemdas < currentOperatorPemdas)
+            {
+                removedCharacters = emptyStack(stack, toAddPemdas);
+            }
+            else if (toAddPemdas == currentOperatorPemdas)
+            {
+                if(toAdd != '^')
+                {
+                    removedCharacters = emptyStack(stack, toAddPemdas);
+                }
+            }
+            else if (toAdd == ')')
+            {
+                removedCharacters = emptyStack(stack, -1);
+                stack.Pop();
+                return removedCharacters;
+            }
+
+            stack.Push(toAdd);
+
+            return removedCharacters;
+        }
+        
+        private static string emptyStack(Stack<char> stack, int toAddPemdas)
+        {
+            string removedCharacters = "";
+
+            char currentOperator;
+
+            bool isNotEmpty = stack.TryPeek(out currentOperator);
+
+            int currentOperatorPemdas = PEMDAS(currentOperator);
+
+            while (isNotEmpty)
+            {
+                isNotEmpty = stack.TryPeek(out currentOperator);
+
+                currentOperatorPemdas = PEMDAS(currentOperator);
+
+                if (!isNotEmpty) break;
+                if (currentOperator == '(') break;
+                if (toAddPemdas > currentOperatorPemdas) break;
+
+                removedCharacters = AddToRPN(removedCharacters, stack.Pop());
+                removedCharacters += " ";
+            }
+
+            return removedCharacters;
+        }
+
+        internal static int Solve(string reversePolishNotation)
+        {
+            throw new NotImplementedException();
         }
     }
 }

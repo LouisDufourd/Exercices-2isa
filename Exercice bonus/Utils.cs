@@ -42,26 +42,6 @@ namespace Exercice_bonus
             return character == '*' || character == '/';
         }
 
-        public static void IsValidOperation(string reversePolishNotation)
-        {
-            string[] rpn = reversePolishNotation.Split(" ");
-            foreach (string item in rpn)
-            {
-                if (IsNumber(item))
-                {
-                    continue;
-                }
-                if (item.Length != 1)
-                {
-                    throw new InvalidOperationException($"L'item \"{item}\" n'est ni un nombre ni un opérateur");
-                }
-                if (!IsAnOperator(item[0]))
-                {
-                    throw new InvalidOperationException($"L'item \"{item}\" n'est pas une opération valide");
-                }
-            }
-        }
-
         public static void GetOperandAndOperator(string reversePolishNotaion, out List<string> operands, out List<char> operators)
         {
             operands = new List<string>();

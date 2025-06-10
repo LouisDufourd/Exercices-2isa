@@ -49,8 +49,7 @@ namespace ExerciceBonus
                     //on verifie que l'opération est valide
                     string reversePolishNotation = ReversePolishNotationConverter.ReversePolishNotation(asked);
                     Console.WriteLine(reversePolishNotation);
-                    Utils.IsValidOperation(reversePolishNotation);
-                    Console.WriteLine("Opération valide");
+                    int result = ReversePolishNotationConverter.Solve(reversePolishNotation);
                     Console.WriteLine(Analyse(reversePolishNotation));
                 }
                 //on attrape les erreur qui sont des opération invalide

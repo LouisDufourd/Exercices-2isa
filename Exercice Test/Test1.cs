@@ -15,8 +15,8 @@ namespace Exercice_Test
         [DataRow('/', 2)]
         [DataRow('%', 2)]
         [DataRow('^', 3)]
-        [DataRow('(', 0)]
-        [DataRow(')', 0)]
+        [DataRow('(', 4)]
+        [DataRow(')', 4)]
 
         // Invalid chars
         [DataRow('&', -1)]
@@ -53,7 +53,7 @@ namespace Exercice_Test
         [DataRow((char)127, -1)]
         public void PEMDASTest(char op, int expected)
         {
-            int result = ReversePolishNotationConverter.PIMDAS(op);
+            int result = ReversePolishNotationConverter.PEMDAS(op);
             Assert.AreEqual(expected, result);
         }
 
