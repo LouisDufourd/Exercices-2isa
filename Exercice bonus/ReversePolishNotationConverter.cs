@@ -1,8 +1,4 @@
-﻿
-
-using System.Data;
-
-namespace Exercice_bonus
+﻿namespace Exercice_bonus
 {
     public class ReversePolishNotationConverter
     {
