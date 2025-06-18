@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 namespace Exercice_Test
 {
     [TestClass]
-    public sealed class Test1
+    public sealed class ReversePolishNotationTest
     {
         private static readonly Regex sWhitespace = new Regex(@"\s+");
 
@@ -106,7 +106,7 @@ namespace Exercice_Test
         [DataRow("2 * 3 + 4 * 5", "2 3 * 4 5 * +")]
         [DataRow("2 * ( 3 + 4 ) * 5", "2 3 4 + * 5 *")]
         [DataRow("3 + 4 * ( 2 - 1 )", "3 4 2 1 - * +")]
-        public void ReversePolishNotationTest(string infix, string expected)
+        public void ReversePolishNotationConversionTest(string infix, string expected)
         {
             string rpn = ReversePolishNotationConverter.ReversePolishNotation(infix);
             Assert.AreEqual(sWhitespace.Replace(expected, ""), sWhitespace.Replace(rpn, ""));

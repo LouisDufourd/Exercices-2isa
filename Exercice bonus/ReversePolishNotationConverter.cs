@@ -208,6 +208,16 @@
                 throw new InvalidOperationException($"The number {secondNumber} is not a valid number");
             }
 
+            if(firstNumber.StartsWith('+'))
+            {
+                firstNumber.Remove(0);
+            }
+
+            if(secondNumber.StartsWith('+'))
+            {
+                secondNumber.Remove(0);
+            }
+
             double intFirstNumber = double.Parse(firstNumber);
             double intSecondNumber = double.Parse(secondNumber);
 

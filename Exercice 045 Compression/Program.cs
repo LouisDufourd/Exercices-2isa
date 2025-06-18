@@ -1,31 +1,24 @@
 ﻿string Compress(string? input)
 {
     if(input == null) return "";
+
     string compressed = "";
-    Dictionary<char, int> characters = new Dictionary<char, int>();
+    char currentChar = (char)0;
+    int quantity = 1;
 
-    for(int i = 0; i < input.Length; i++)
+    for (int i = 0; i < input.Length; i++)
     {
-        if (characters.TryGetValue(input[i], out int value))
+        if(currentChar != input[i]) 
         {
-            characters[input[i]] = ++value;
-        } else
-        {
-            characters.Add(input[i], 1);
+            compressed += (quantity > 1 ? $"{quantity}" : "") + currentChar;
+            currentChar = input[i];
+            quantity = 1;
+            continue;
         }
+        quantity++;
     }
 
-    foreach (var item in characters)
-    {
-        if(item.Value > 1)
-        {
-            compressed += $"{item.Value}{item.Key}";
-        } 
-        else
-        {
-            compressed += item.Key;
-        }
-    }
+    compressed += (quantity > 1 ? $"{quantity}" : "") + currentChar;
 
     return compressed;
 }

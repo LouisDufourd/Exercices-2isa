@@ -48,12 +48,12 @@ namespace ExerciceBonus
                 {
                     //on verifie que l'opération est valide
                     string reversePolishNotation = ReversePolishNotationConverter.ReversePolishNotation(asked);
-                    Console.WriteLine(reversePolishNotation);
+                    //Console.WriteLine(reversePolishNotation);
                     string result = ReversePolishNotationConverter.Solve(reversePolishNotation);
                     Console.WriteLine(result);
                 }
                 //on attrape les erreur qui sont des opération invalide
-                catch (InvalidOperationException e)
+                catch (Exception e)
                 {
                     //dis à la console d'écrire en rouge
                     Console.ForegroundColor = ConsoleColor.Red;
