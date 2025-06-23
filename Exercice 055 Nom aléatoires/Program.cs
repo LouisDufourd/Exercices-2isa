@@ -52,16 +52,22 @@ for (int i = 0; i < 12;)
 }
 
 uint number = 0;
+bool isThereAnError = false;
 
-while(!AskUInt($"Choisissez combiens de nom voulez-vous tirez au sort (vous avez {names.Count} noms) : ", out number) || number > names.Count)
+while (!AskUInt($"Choisissez combiens de nom voulez-vous tirez au sort (vous avez {names.Count} noms) : ", out number) || number > names.Count)
 {
+    if (isThereAnError) ClearCurrentConsoleLine();
+    isThereAnError = true;
     ClearCurrentConsoleLine();
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine($"Veuillez entrez un nombre entier positif et inférieure ou égale à {names.Count}");
     Console.ForegroundColor = ConsoleColor.White;
 }
+
+if (isThereAnError) ClearCurrentConsoleLine();
 ClearCurrentConsoleLine();
 
+isThereAnError = false;
 Random rd = new();
 
 List<string> choosedNames = new();

@@ -23,7 +23,7 @@ int[] numbers = [-6, -2, 4, 7, 22, 76, 123, 456, 789, 1032];
 int min = 0;
 int max = numbers.Length;
 int numberToFind;
-bool isFound = false, isThereAnError = false; ;
+bool isFound = false, isThereAnError = false;
 
 while (!AskInt("Tapez un nombre à trouvez dans le tableau: ", out numberToFind))
 {
