@@ -1,12 +1,13 @@
-﻿static bool isPrimeNumber(int number, out int divisable)
+﻿static bool isPrimeNumberWithSqrt(int number)
 {
-    divisable = -1;
+    int divisable = -1;
 
-    int sqrt = (int)Math.Round(Math.Sqrt(number));
+    int sqrt = (int) Math.Round(Math.Sqrt(number));
 
     for (int i = 2; i <= sqrt; i++)
     {
         int reste = number % i;
+
         if (reste == 0)
         {
             divisable = i;
@@ -19,8 +20,8 @@
 
 for (int i = 2; i <= 100; i++)
 {
-    if(isPrimeNumber(i, out int _))
+    if(isPrimeNumberWithSqrt(i))
     {
-        Console.WriteLine(i);
+        Console.WriteLine($"\t{i}");
     }
 }

@@ -6,16 +6,15 @@
     char currentChar = (char)0;
     int quantity = 1;
 
-    for (int i = 0; i < input.Length; i++)
+    foreach (var character in input)
     {
-        if(currentChar != input[i]) 
+        if (currentChar != character)
         {
             compressed += (quantity > 1 ? $"{quantity}" : "") + currentChar;
-            currentChar = input[i];
+            currentChar = character;
             quantity = 1;
-            continue;
         }
-        quantity++;
+        else quantity++;
     }
 
     compressed += (quantity > 1 ? $"{quantity}" : "") + currentChar;

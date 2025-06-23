@@ -1,6 +1,4 @@
-﻿using System.Security.Principal;
-
-static string IntToBinary(int number)
+﻿static string IntToBinary(int number)
 {
     string binary = "";
     bool breakFlag = false;
@@ -33,7 +31,7 @@ static string IntToBinary(int number)
     {
         if (binary[0] == '0')
         {
-            binary = binary.Substring(2);
+            binary = binary.Substring(1);
         }
     }
 
@@ -52,12 +50,16 @@ static bool AskInt(string question, out int number)
     return int.TryParse(asked, out number);
 }
 
-int number = 0;
-bool success = false;
+Console.WriteLine(Int32.MinValue);
+Console.WriteLine(Int32.MaxValue);
 
-while(!success)
+int number = 0;
+
+while(!AskInt("Entrez un nombre : ", out number))
 {
-    success = AskInt("Entrez un nombre : ", out number);
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("Veuillez entrez un nombre entier entre -2^31 et 2^31 - 1");
+    Console.ForegroundColor = ConsoleColor.White;
 }
 
 Console.WriteLine(IntToBinary(number));
