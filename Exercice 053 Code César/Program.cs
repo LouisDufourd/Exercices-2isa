@@ -19,6 +19,7 @@ bool AskDirection(string question, out char character)
 {
     Console.Write(question);
     ConsoleKeyInfo asked = Console.ReadKey();
+    Console.WriteLine();
 
     if (asked.KeyChar != '>' && asked.KeyChar != '<')
     {
@@ -26,7 +27,6 @@ bool AskDirection(string question, out char character)
         return false;
     }
 
-    Console.WriteLine();
 
     character = asked.KeyChar;
     return true;
