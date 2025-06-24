@@ -15,7 +15,64 @@ bool AskString(string question, out string chaine)
     return true;
 }
 
-string ask = "";
+bool AskDirection(string question, out char character)
+{
+    Console.Write(question);
+    ConsoleKeyInfo asked = Console.ReadKey();
+
+    if (asked.KeyChar != '>' && asked.KeyChar != '<')
+    {
+        character = (char)0x0;
+        return false;
+    }
+
+    Console.WriteLine();
+
+    character = asked.KeyChar;
+    return true;
+}
+
+string CaesarOffset(string origin, bool direction, int offset)
+{
+    var builder = new StringBuilder(origin);
+
+    for (int i = 0; i < builder.Length; i++)
+    {
+        if (builder[i] >= 65 && builder[i] <= 90)
+        {
+            int index = builder[i] - 65;
+
+            if (direction)
+            {
+                index = (index + offset) % 26;
+                builder[i] = (char)(65 + index);
+                continue;
+            }
+
+            index = (index - offset + 26) % 26;
+            builder[i] = (char)(65 + index);
+        }
+        else if (builder[i] >= 97 && builder[i] <= 122)
+        {
+            int index = builder[i] - 97;
+
+            if (direction)
+            {
+                index = (index + offset) % 26;
+                builder[i] = (char)(97 + index);
+                continue;
+            }
+
+            index = (index - offset + 26) % 26;
+            builder[i] = (char)(97 + index);
+        }
+    }
+
+    return builder.ToString();
+}
+
+string ask;
+char direction;
 
 while(!AskString("Entrez une chaine de charactère à crypté: ", out ask))
 {
@@ -24,17 +81,11 @@ while(!AskString("Entrez une chaine de charactère à crypté: ", out ask))
     Console.ForegroundColor = ConsoleColor.White;
 }
 
-var builder = new StringBuilder(ask);
-
-for (int i = 0; i < builder.Length; i++)
+while(!AskDirection("Choisissez une direction (< ou >): ", out direction))
 {
-    if (builder[i] == 'z') builder[i] = 'c';
-    else if (builder[i] == 'y') builder[i] = 'b';
-    else if (builder[i] == 'x') builder[i] = 'a';
-    else if (builder[i] == 'Z') builder[i] = 'C';
-    else if (builder[i] == 'Y') builder[i] = 'B';
-    else if (builder[i] == 'X') builder[i] = 'A';
-    else if ((builder[i] >= 'a' && builder[i] <= 'w') || (builder[i] >= 'A' && builder[i] <= 'W')) builder[i] += (char) 3;
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine("Veuillez entrez un charactère '<' ou '>'");
+    Console.ForegroundColor = ConsoleColor.White;
 }
 
-Console.WriteLine(builder.ToString());
+Console.WriteLine(CaesarOffset(ask, direction == '>', 3));

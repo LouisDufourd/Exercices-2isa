@@ -70,6 +70,21 @@
         return float.TryParse(asked, out number);
     }
 
+    public bool AskLetter(string question, out char character)
+    {
+        Console.Write(question);
+        ConsoleKeyInfo asked = Console.ReadKey();
+
+        if (!char.IsAsciiLetter(asked.KeyChar))
+        {
+            character = (char) 0x0;
+            return false;
+        }
+
+        character = asked.KeyChar;
+        return true;
+    }
+
     public static void ClearCurrentConsoleLine()
     {
         Console.SetCursorPosition(0, Console.CursorTop - 1);
