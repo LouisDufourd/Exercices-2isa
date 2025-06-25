@@ -1,13 +1,15 @@
-﻿static void ClearCurrentConsoleLine()
+﻿using System.Xml.Linq;
+
+static void ClearCurrentConsoleLine()
 {
+    if (Console.CursorTop == 0) return;
     Console.SetCursorPosition(0, Console.CursorTop - 1);
     int currentLineCursor = Console.CursorTop;
     Console.SetCursorPosition(0, Console.CursorTop);
     Console.Write(new string(' ', Console.WindowWidth));
     Console.SetCursorPosition(0, currentLineCursor);
 }
-
-bool AskString(string question, out string chaine)
+static bool AskString(string question, out string chaine)
 {
     Console.Write(question);
     string? asked = Console.ReadLine();
@@ -21,7 +23,6 @@ bool AskString(string question, out string chaine)
     chaine = asked;
     return true;
 }
-
 static bool AskUInt(string question, out uint number)
 {
     Console.Write(question);
@@ -34,33 +35,74 @@ static bool AskUInt(string question, out uint number)
     return uint.TryParse(asked, out number);
 }
 
-List<string> names = new List<string>();
-
-for (int i = 0; i < 12;)
+static bool Contains(string[] array, string str)
 {
-    if(AskString("Entrez un nom (Tapez exit pour arreter de taper des noms) : ", out string name) && !names.Contains(name.ToLower()))
+    if (array.Length == 0) return true;
+    for (int i = 0; i < array.Length; i++)
     {
-        if (name == "exit")
-        {
-            ClearCurrentConsoleLine();
-            break;
-        }
-        names.Add(name);
-        i++;
+        if (array[i] == null) return false;
+        if (array[i].Equals(str, StringComparison.OrdinalIgnoreCase)) return true;
     }
-    ClearCurrentConsoleLine();
+
+    return false;
 }
 
-uint number = 0;
+uint size;
 bool isThereAnError = false;
 
-while (!AskUInt($"Choisissez combiens de nom voulez-vous tirez au sort (vous avez {names.Count} noms) : ", out number) || number > names.Count)
+while (!AskUInt("Entrez le nombre de prénoms à entrées : ", out size))
 {
     if (isThereAnError) ClearCurrentConsoleLine();
     isThereAnError = true;
     ClearCurrentConsoleLine();
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine($"Veuillez entrez un nombre entier positif et inférieure ou égale à {names.Count}");
+    Console.WriteLine($"Veuillez entrez un nombre entier positif");
+    Console.ForegroundColor = ConsoleColor.White;
+}
+
+if (isThereAnError) ClearCurrentConsoleLine();
+ClearCurrentConsoleLine();
+
+string[] names = new string[size];
+isThereAnError = false;
+
+for (uint i = 0; i < size; )
+{
+    if(AskString("Entrez un nom : ", out string name) && !Contains(names, name))
+    {
+        names[i] = name;
+        i++;
+        if (isThereAnError)
+        {
+            isThereAnError = false;
+            ClearCurrentConsoleLine();
+        }
+        ClearCurrentConsoleLine();
+    }
+    else
+    {
+        isThereAnError = true;
+        ClearCurrentConsoleLine();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine($"Le nom que vous avez entrée à déjà été ajouter à la liste de prénoms");
+        Console.ForegroundColor = ConsoleColor.White;
+
+    }
+}
+
+if (isThereAnError) ClearCurrentConsoleLine();
+ClearCurrentConsoleLine();
+
+uint number;
+isThereAnError = false;
+
+while (!AskUInt($"Choisissez combiens de nom voulez-vous tirez au sort (vous avez {names.Length} noms) : ", out number) || number > names.Length)
+{
+    if (isThereAnError) ClearCurrentConsoleLine();
+    isThereAnError = true;
+    ClearCurrentConsoleLine();
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine($"Veuillez entrez un nombre entier positif et inférieure ou égale à {names.Length}");
     Console.ForegroundColor = ConsoleColor.White;
 }
 
@@ -70,20 +112,20 @@ ClearCurrentConsoleLine();
 isThereAnError = false;
 Random rd = new();
 
-List<string> choosedNames = new();
+string[] choosedNames = new string[number];
 
 for (int i = 0; i < number;)
 {
-    int index = rd.Next(names.Count);
+    int index = rd.Next(names.Length);
     string choosedName = names[index];
-    if (choosedNames.Contains(choosedName)) continue;
+    if (Contains(choosedNames, choosedName)) continue;
 
-    choosedNames.Add(choosedName);
+    choosedNames[i] = choosedName;
     i++;
 }
 
 Console.WriteLine("Les noms tirez aux sorts sont : ");
 foreach (var choosedName in choosedNames)
 {
-    Console.WriteLine($"\t-{choosedName}");
+    Console.WriteLine($"\t- {choosedName}");
 }
