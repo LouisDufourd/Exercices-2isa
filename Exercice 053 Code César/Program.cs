@@ -32,9 +32,11 @@ bool AskDirection(string question, out char character)
     return true;
 }
 
-string CaesarOffset(string origin, bool direction, int offset)
+string CaesarOffset(string origin, bool direction = true, int offset = 3)
 {
     var builder = new StringBuilder(origin);
+    offset = Math.Abs(offset);
+
 
     for (int i = 0; i < builder.Length; i++)
     {
@@ -88,4 +90,4 @@ while(!AskDirection("Choisissez une direction (< ou >): ", out direction))
     Console.ForegroundColor = ConsoleColor.White;
 }
 
-Console.WriteLine(CaesarOffset(ask, direction == '>', 3));
+Console.WriteLine(CaesarOffset(ask, direction == '>'));
