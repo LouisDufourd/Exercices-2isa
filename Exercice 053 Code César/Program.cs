@@ -38,33 +38,33 @@ string CaesarOffset(string origin, bool direction, int offset)
 
     for (int i = 0; i < builder.Length; i++)
     {
-        if (builder[i] >= 65 && builder[i] <= 90)
+        if (builder[i] >= 'A' && builder[i] <= 'Z')
         {
-            int index = builder[i] - 65;
+            int index = builder[i] - 'A';
 
             if (direction)
             {
                 index = (index + offset) % 26;
-                builder[i] = (char)(65 + index);
+                builder[i] = (char)('A' + index);
                 continue;
             }
 
             index = (index - offset + 26) % 26;
-            builder[i] = (char)(65 + index);
+            builder[i] = (char)('A' + index);
         }
-        else if (builder[i] >= 97 && builder[i] <= 122)
+        else if (builder[i] >= 'a' && builder[i] <= 'z')
         {
-            int index = builder[i] - 97;
+            int index = builder[i] - 'a';
 
             if (direction)
             {
-                index = (index + offset) % 26;
-                builder[i] = (char)(97 + index);
+                index = (index + offset % 26) % 26;
+                builder[i] = (char)('a' + index);
                 continue;
             }
 
-            index = (index - offset + 26) % 26;
-            builder[i] = (char)(97 + index);
+            index = (index - offset % 26 + 26) % 26;
+            builder[i] = (char)('a' + index);
         }
     }
 
