@@ -30,7 +30,7 @@
     Console.WriteLine("]");
 }
 
-int[] unSortedArray = new int[25];
+int[] unSortedArray = new int[50];
 
 Random rd = new();
 
@@ -44,9 +44,9 @@ ShowArray(unSortedArray);
 
 for (int i = 0; i < unSortedArray.Length; i++)
 {
-    for (int j = 0; j < unSortedArray.Length; j++)
+    for (int j = 0; j < unSortedArray.Length - 1; j++)
     {
-        if (unSortedArray[i] > unSortedArray[j])
+        if (unSortedArray[i] < unSortedArray[j])
         {
             int temp = unSortedArray[i];
             unSortedArray[i] = unSortedArray[j];

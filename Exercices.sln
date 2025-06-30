@@ -121,6 +121,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 055 Nom aléatoire
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 056 Recherche dichotomique", "Exercice 056 Recherche dichotomique\Exercice 056 Recherche dichotomique.csproj", "{A6E3B317-BE40-4640-AAE5-C173656A9F49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 057", "Exercice 057\Exercice 057.csproj", "{B6AC2572-345A-47F4-91FA-C09A89A68FCA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -363,6 +365,10 @@ Global
 		{A6E3B317-BE40-4640-AAE5-C173656A9F49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6E3B317-BE40-4640-AAE5-C173656A9F49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6E3B317-BE40-4640-AAE5-C173656A9F49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6AC2572-345A-47F4-91FA-C09A89A68FCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6AC2572-345A-47F4-91FA-C09A89A68FCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6AC2572-345A-47F4-91FA-C09A89A68FCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6AC2572-345A-47F4-91FA-C09A89A68FCA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
