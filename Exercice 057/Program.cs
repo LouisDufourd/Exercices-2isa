@@ -1,4 +1,7 @@
-﻿bool AskString(string question, out string chaine)
+﻿using System.Globalization;
+using System.Text;
+
+bool AskString(string question, out string chaine)
 {
     Console.Write(question);
     string? asked = Console.ReadLine();
@@ -9,7 +12,7 @@
         return false;
     }
 
-    chaine = asked;
+    chaine = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(asked);
     return true;
 }
 
@@ -53,6 +56,8 @@ static void PrintWelcomMessage(string userName, uint scoreTOEIC)
     Console.WriteLine(message);
 }
 
+Console.OutputEncoding = Encoding.UTF8;
+
 bool isThereAnError = false;
 
 string nom;
@@ -79,7 +84,7 @@ while (!AskTOEIC("Veuillez saisir votre score au TOEIC : ", out score))
     ClearCurrentConsoleLine();
     isThereAnError = true;
     Console.ForegroundColor = ConsoleColor.Red;
-    Console.WriteLine("Vous devez entrée un nombre entier positif entre 10 et 990 (10 >= n <= 990");
+    Console.WriteLine("Vous devez entrée un nombre entier positif entre 10 et 990 (10 ≥ n ≤ 990)");
     Console.ForegroundColor = ConsoleColor.White;
 }
 
