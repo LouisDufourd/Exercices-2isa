@@ -121,7 +121,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 055 Nom aléatoire
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 056 Recherche dichotomique", "Exercice 056 Recherche dichotomique\Exercice 056 Recherche dichotomique.csproj", "{A6E3B317-BE40-4640-AAE5-C173656A9F49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 057", "Exercice 057\Exercice 057.csproj", "{B6AC2572-345A-47F4-91FA-C09A89A68FCA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercice 057 Mise en pratique", "Exercice 057\Exercice 057 Mise en pratique.csproj", "{B6AC2572-345A-47F4-91FA-C09A89A68FCA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

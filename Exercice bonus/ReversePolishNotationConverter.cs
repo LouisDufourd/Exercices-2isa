@@ -9,22 +9,13 @@
             string rpn = "";
             string number = "";
 
-            //bool for parenthesis
-            int numberOfParenthesisOpen = 0;
-            //bool for formating
-            bool isFirstNumber = true;
-
             for (int i = 0; i < operation.Length; i++)
             {
                 //current selected char
                 char currentChar = operation[i];
-                //currentOperator
-                char currentOperator;
-                //is the stack empty
-                bool isStackEmpty = stack.TryPeek(out currentOperator);
-                
+
                 //if the PEMDAS is less than 0 then it's not an operator and we assume it's a number
-                if(PEMDAS(currentChar) < 0)
+                if (PEMDAS(currentChar) < 0)
                 {
                     number += currentChar;
                     continue;
@@ -51,7 +42,7 @@
             return rpn;
         }
 
-        public static int PEMDAS(char current_operator)
+        private static int PEMDAS(char current_operator)
         {
             switch (current_operator)
             {
@@ -126,9 +117,7 @@
         {
             string removedCharacters = "";
 
-            char currentOperator;
-
-            bool isNotEmpty = stack.TryPeek(out currentOperator);
+            bool isNotEmpty = stack.TryPeek(out char currentOperator);
 
             int currentOperatorPemdas = PEMDAS(currentOperator);
 
@@ -203,7 +192,7 @@
                 throw new InvalidOperationException($"The number {firstNumber} is not a valid number");
             }
 
-            if (!Utils.IsNumber(firstNumber))
+            if (!Utils.IsNumber(secondNumber))
             {
                 throw new InvalidOperationException($"The number {secondNumber} is not a valid number");
             }
